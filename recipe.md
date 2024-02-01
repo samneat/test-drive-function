@@ -6,26 +6,23 @@ Copy this into a `recipe.md` in your project and fill it out.
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
+As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string `#TODO`.
+
+
 ## 2. Design the Function Signature
 
 _Include the name of the function, its parameters, return value, and side effects._
 
 ```python
-# EXAMPLE
+def track_task():
+    #Parameters:
+        #text
+    #Return:
+        #list
+    pass
 
-def extract_uppercase(mixed_words):
-    """Extracts uppercase words from a string
-
-    Parameters: (list all parameters and their types)
-        mixed_words: a string containing words (e.g. "hello WORLD")
-
-    Returns: (state the return value and its type)
-        a list of strings, each one a word (e.g. ["WORLD"])
-
-    Side effects: (state any side effects)
-        This function doesn't print anything or have any other side-effects
-    """
-    pass # Test-driving means _not_ writing any code here yet.
 ```
 
 ## 3. Create Examples as Tests
@@ -33,49 +30,24 @@ def extract_uppercase(mixed_words):
 _Make a list of examples of what the function will take and return._
 
 ```python
-# EXAMPLE
-
-"""
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-extract_uppercase("hello WORLD") => ["WORLD"]
-
-"""
-Given two uppercase words
-It returns a list with both words
-"""
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-
-"""
-Given two lowercase words
-It returns an empty list
-"""
-extract_uppercase("hello world") => []
-
-"""
-Given a lower and a mixed case word
-It returns an empty list
-"""
-extract_uppercase("hello WoRLD") => []
-
-"""
-Given a lowercase word and an uppercase word with an exclamation mark
-It returns a list with the uppercase word, no exclamation mark
-"""
-extract_uppercase("hello WORLD!") => ["WORLD"]
-
 """
 Given an empty string
-It returns an empty list
+It will return an empty list
 """
-extract_uppercase("") => []
+track_task("") => []
 
 """
-Given a None value
-It throws an error
+Given an text with no `#TODO`
+It will return an empty list
 """
-extract_uppercase(None) throws an error
+track_task("go to the shops") => []
+
+"""
+Given an text containing `#TODO`
+It will return a list containing tasks
+"""
+track_task("#TODO go fishing") => ['go fishing']
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
